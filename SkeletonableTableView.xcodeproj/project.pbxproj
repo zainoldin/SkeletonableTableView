@@ -12,6 +12,12 @@
 		C4DEED0724B22B2B0098F9CB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DEED0624B22B2B0098F9CB /* ViewController.swift */; };
 		C4DEED0C24B22B2E0098F9CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4DEED0B24B22B2E0098F9CB /* Assets.xcassets */; };
 		C4DEED1C24B22DEF0098F9CB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4DEED1A24B22DEF0098F9CB /* LaunchScreen.storyboard */; };
+		C4DEED2024B231630098F9CB /* UITableView+Dequeue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DEED1F24B231630098F9CB /* UITableView+Dequeue.swift */; };
+		C4DEED2224B231DE0098F9CB /* UICollectionView+Dequeue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DEED2124B231DE0098F9CB /* UICollectionView+Dequeue.swift */; };
+		C4DEED2424B232170098F9CB /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DEED2324B232170098F9CB /* UIColor+Hex.swift */; };
+		C4DEED2824B232BD0098F9CB /* UITableView+Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DEED2724B232BD0098F9CB /* UITableView+Register.swift */; };
+		C4DEED2B24B2330B0098F9CB /* UICollectionView+Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DEED2A24B2330B0098F9CB /* UICollectionView+Register.swift */; };
+		C4DEED2F24B233660098F9CB /* UIView+NibLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DEED2E24B233660098F9CB /* UIView+NibLoading.swift */; };
 		D463F84BD94DF9900A4236D4 /* Pods_SkeletonableTableView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2AA6FB31D50C6DB503040C8 /* Pods_SkeletonableTableView.framework */; };
 /* End PBXBuildFile section */
 
@@ -24,6 +30,12 @@
 		C4DEED0B24B22B2E0098F9CB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C4DEED1024B22B2E0098F9CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C4DEED1B24B22DEF0098F9CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C4DEED1F24B231630098F9CB /* UITableView+Dequeue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Dequeue.swift"; sourceTree = "<group>"; };
+		C4DEED2124B231DE0098F9CB /* UICollectionView+Dequeue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Dequeue.swift"; sourceTree = "<group>"; };
+		C4DEED2324B232170098F9CB /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
+		C4DEED2724B232BD0098F9CB /* UITableView+Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Register.swift"; sourceTree = "<group>"; };
+		C4DEED2A24B2330B0098F9CB /* UICollectionView+Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Register.swift"; sourceTree = "<group>"; };
+		C4DEED2E24B233660098F9CB /* UIView+NibLoading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+NibLoading.swift"; sourceTree = "<group>"; };
 		E2AA6FB31D50C6DB503040C8 /* Pods_SkeletonableTableView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SkeletonableTableView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECBEA1B1128BE8AF85F06A14 /* Pods-SkeletonableTableView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SkeletonableTableView.release.xcconfig"; path = "Target Support Files/Pods-SkeletonableTableView/Pods-SkeletonableTableView.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -94,6 +106,7 @@
 			children = (
 				C4DEED0224B22B2B0098F9CB /* AppDelegate.swift */,
 				C4DEED0424B22B2B0098F9CB /* SceneDelegate.swift */,
+				C4DEED1E24B231300098F9CB /* Extensions */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -110,6 +123,51 @@
 			children = (
 			);
 			path = Example;
+			sourceTree = "<group>";
+		};
+		C4DEED1E24B231300098F9CB /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C4DEED2924B232E00098F9CB /* UICollectionView */,
+				C4DEED2C24B233230098F9CB /* UIColor */,
+				C4DEED2624B232A60098F9CB /* UITableView */,
+				C4DEED2D24B233560098F9CB /* UIView */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		C4DEED2624B232A60098F9CB /* UITableView */ = {
+			isa = PBXGroup;
+			children = (
+				C4DEED1F24B231630098F9CB /* UITableView+Dequeue.swift */,
+				C4DEED2724B232BD0098F9CB /* UITableView+Register.swift */,
+			);
+			path = UITableView;
+			sourceTree = "<group>";
+		};
+		C4DEED2924B232E00098F9CB /* UICollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				C4DEED2124B231DE0098F9CB /* UICollectionView+Dequeue.swift */,
+				C4DEED2A24B2330B0098F9CB /* UICollectionView+Register.swift */,
+			);
+			path = UICollectionView;
+			sourceTree = "<group>";
+		};
+		C4DEED2C24B233230098F9CB /* UIColor */ = {
+			isa = PBXGroup;
+			children = (
+				C4DEED2324B232170098F9CB /* UIColor+Hex.swift */,
+			);
+			path = UIColor;
+			sourceTree = "<group>";
+		};
+		C4DEED2D24B233560098F9CB /* UIView */ = {
+			isa = PBXGroup;
+			children = (
+				C4DEED2E24B233660098F9CB /* UIView+NibLoading.swift */,
+			);
+			path = UIView;
 			sourceTree = "<group>";
 		};
 		E3F8442A55B8A244ED294094 /* Frameworks */ = {
@@ -234,9 +292,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4DEED2224B231DE0098F9CB /* UICollectionView+Dequeue.swift in Sources */,
 				C4DEED0724B22B2B0098F9CB /* ViewController.swift in Sources */,
+				C4DEED2824B232BD0098F9CB /* UITableView+Register.swift in Sources */,
 				C4DEED0324B22B2B0098F9CB /* AppDelegate.swift in Sources */,
+				C4DEED2424B232170098F9CB /* UIColor+Hex.swift in Sources */,
+				C4DEED2024B231630098F9CB /* UITableView+Dequeue.swift in Sources */,
 				C4DEED0524B22B2B0098F9CB /* SceneDelegate.swift in Sources */,
+				C4DEED2F24B233660098F9CB /* UIView+NibLoading.swift in Sources */,
+				C4DEED2B24B2330B0098F9CB /* UICollectionView+Register.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
