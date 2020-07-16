@@ -20,6 +20,13 @@
 		C4DEED2824B232BD0098F9CB /* UITableView+Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DEED2724B232BD0098F9CB /* UITableView+Register.swift */; };
 		C4DEED2B24B2330B0098F9CB /* UICollectionView+Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DEED2A24B2330B0098F9CB /* UICollectionView+Register.swift */; };
 		C4DEED2F24B233660098F9CB /* UIView+NibLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DEED2E24B233660098F9CB /* UIView+NibLoading.swift */; };
+		C4F63BA924C0B8170002BAC8 /* SkeletonTypeSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F63BA724C0B8170002BAC8 /* SkeletonTypeSelectionViewController.swift */; };
+		C4F63BAA24C0B8170002BAC8 /* SkeletonTypeSelectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4F63BA824C0B8170002BAC8 /* SkeletonTypeSelectionViewController.xib */; };
+		C4F63C3824C0BBB60002BAC8 /* SkeletonableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F63C3624C0BBB60002BAC8 /* SkeletonableViewController.swift */; };
+		C4F63C3924C0BBB60002BAC8 /* SkeletonableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4F63C3724C0BBB60002BAC8 /* SkeletonableViewController.xib */; };
+		C4F63C4024C0C0050002BAC8 /* RowType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F63C3F24C0C0050002BAC8 /* RowType.swift */; };
+		C4F63C4524C0C1160002BAC8 /* OptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F63C4324C0C1160002BAC8 /* OptionCell.swift */; };
+		C4F63C4624C0C1160002BAC8 /* OptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4F63C4424C0C1160002BAC8 /* OptionCell.xib */; };
 		D463F84BD94DF9900A4236D4 /* Pods_SkeletonableTableView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2AA6FB31D50C6DB503040C8 /* Pods_SkeletonableTableView.framework */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +47,13 @@
 		C4DEED2724B232BD0098F9CB /* UITableView+Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Register.swift"; sourceTree = "<group>"; };
 		C4DEED2A24B2330B0098F9CB /* UICollectionView+Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Register.swift"; sourceTree = "<group>"; };
 		C4DEED2E24B233660098F9CB /* UIView+NibLoading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+NibLoading.swift"; sourceTree = "<group>"; };
+		C4F63BA724C0B8170002BAC8 /* SkeletonTypeSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonTypeSelectionViewController.swift; sourceTree = "<group>"; };
+		C4F63BA824C0B8170002BAC8 /* SkeletonTypeSelectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SkeletonTypeSelectionViewController.xib; sourceTree = "<group>"; };
+		C4F63C3624C0BBB60002BAC8 /* SkeletonableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonableViewController.swift; sourceTree = "<group>"; };
+		C4F63C3724C0BBB60002BAC8 /* SkeletonableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SkeletonableViewController.xib; sourceTree = "<group>"; };
+		C4F63C3F24C0C0050002BAC8 /* RowType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowType.swift; sourceTree = "<group>"; };
+		C4F63C4324C0C1160002BAC8 /* OptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionCell.swift; sourceTree = "<group>"; };
+		C4F63C4424C0C1160002BAC8 /* OptionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OptionCell.xib; sourceTree = "<group>"; };
 		E2AA6FB31D50C6DB503040C8 /* Pods_SkeletonableTableView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SkeletonableTableView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECBEA1B1128BE8AF85F06A14 /* Pods-SkeletonableTableView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SkeletonableTableView.release.xcconfig"; path = "Target Support Files/Pods-SkeletonableTableView/Pods-SkeletonableTableView.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -63,6 +77,14 @@
 				ECBEA1B1128BE8AF85F06A14 /* Pods-SkeletonableTableView.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		C426F4C624C0B62400E8DCEC /* SkeletonTypeSelection */ = {
+			isa = PBXGroup;
+			children = (
+				C4F63C3D24C0BDD60002BAC8 /* Controller */,
+			);
+			path = SkeletonTypeSelection;
 			sourceTree = "<group>";
 		};
 		C4A5400B24BF6AE6005A8FD1 /* SkeletonableTableView */ = {
@@ -135,6 +157,8 @@
 		C4DEED1924B22CE30098F9CB /* Example */ = {
 			isa = PBXGroup;
 			children = (
+				C4F63C3524C0BB990002BAC8 /* SkeletonableViewController */,
+				C426F4C624C0B62400E8DCEC /* SkeletonTypeSelection */,
 			);
 			path = Example;
 			sourceTree = "<group>";
@@ -182,6 +206,59 @@
 				C4DEED2E24B233660098F9CB /* UIView+NibLoading.swift */,
 			);
 			path = UIView;
+			sourceTree = "<group>";
+		};
+		C4F63C3524C0BB990002BAC8 /* SkeletonableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C4F63C3A24C0BC270002BAC8 /* Controller */,
+				C4F63C3B24C0BC350002BAC8 /* Model */,
+				C4F63C4124C0C0FB0002BAC8 /* View */,
+			);
+			path = SkeletonableViewController;
+			sourceTree = "<group>";
+		};
+		C4F63C3A24C0BC270002BAC8 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C4F63C3624C0BBB60002BAC8 /* SkeletonableViewController.swift */,
+				C4F63C3724C0BBB60002BAC8 /* SkeletonableViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C4F63C3B24C0BC350002BAC8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C4F63C3F24C0C0050002BAC8 /* RowType.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C4F63C3D24C0BDD60002BAC8 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C4F63BA724C0B8170002BAC8 /* SkeletonTypeSelectionViewController.swift */,
+				C4F63BA824C0B8170002BAC8 /* SkeletonTypeSelectionViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C4F63C4124C0C0FB0002BAC8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C4F63C4224C0C1010002BAC8 /* OptionCell */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C4F63C4224C0C1010002BAC8 /* OptionCell */ = {
+			isa = PBXGroup;
+			children = (
+				C4F63C4324C0C1160002BAC8 /* OptionCell.swift */,
+				C4F63C4424C0C1160002BAC8 /* OptionCell.xib */,
+			);
+			path = OptionCell;
 			sourceTree = "<group>";
 		};
 		E3F8442A55B8A244ED294094 /* Frameworks */ = {
@@ -252,6 +329,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4F63BAA24C0B8170002BAC8 /* SkeletonTypeSelectionViewController.xib in Resources */,
+				C4F63C3924C0BBB60002BAC8 /* SkeletonableViewController.xib in Resources */,
+				C4F63C4624C0C1160002BAC8 /* OptionCell.xib in Resources */,
 				C4DEED0C24B22B2E0098F9CB /* Assets.xcassets in Resources */,
 				C4DEED1C24B22DEF0098F9CB /* LaunchScreen.storyboard in Resources */,
 			);
@@ -306,10 +386,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4F63C3824C0BBB60002BAC8 /* SkeletonableViewController.swift in Sources */,
 				C4DEED2224B231DE0098F9CB /* UICollectionView+Dequeue.swift in Sources */,
 				C4DEED0724B22B2B0098F9CB /* ViewController.swift in Sources */,
 				C4DEED2824B232BD0098F9CB /* UITableView+Register.swift in Sources */,
+				C4F63C4024C0C0050002BAC8 /* RowType.swift in Sources */,
+				C4F63C4524C0C1160002BAC8 /* OptionCell.swift in Sources */,
 				C4DEED0324B22B2B0098F9CB /* AppDelegate.swift in Sources */,
+				C4F63BA924C0B8170002BAC8 /* SkeletonTypeSelectionViewController.swift in Sources */,
 				C4DEED2424B232170098F9CB /* UIColor+Hex.swift in Sources */,
 				C4DEED2024B231630098F9CB /* UITableView+Dequeue.swift in Sources */,
 				C4DEED0524B22B2B0098F9CB /* SceneDelegate.swift in Sources */,
