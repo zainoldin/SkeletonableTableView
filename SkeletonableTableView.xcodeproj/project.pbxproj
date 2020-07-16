@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C4A5400D24BF6B27005A8FD1 /* SkeletonableTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A5400C24BF6B27005A8FD1 /* SkeletonableTableView.swift */; };
+		C4A5400F24BF6B9E005A8FD1 /* SkeletonableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A5400E24BF6B9E005A8FD1 /* SkeletonableTableViewCell.swift */; };
 		C4DEED0324B22B2B0098F9CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DEED0224B22B2B0098F9CB /* AppDelegate.swift */; };
 		C4DEED0524B22B2B0098F9CB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DEED0424B22B2B0098F9CB /* SceneDelegate.swift */; };
 		C4DEED0724B22B2B0098F9CB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DEED0624B22B2B0098F9CB /* ViewController.swift */; };
@@ -23,6 +25,8 @@
 
 /* Begin PBXFileReference section */
 		3F72EC6BB1CB238F82DA1828 /* Pods-SkeletonableTableView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SkeletonableTableView.debug.xcconfig"; path = "Target Support Files/Pods-SkeletonableTableView/Pods-SkeletonableTableView.debug.xcconfig"; sourceTree = "<group>"; };
+		C4A5400C24BF6B27005A8FD1 /* SkeletonableTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonableTableView.swift; sourceTree = "<group>"; };
+		C4A5400E24BF6B9E005A8FD1 /* SkeletonableTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonableTableViewCell.swift; sourceTree = "<group>"; };
 		C4DEECFF24B22B2B0098F9CB /* SkeletonableTableView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SkeletonableTableView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4DEED0224B22B2B0098F9CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C4DEED0424B22B2B0098F9CB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +63,15 @@
 				ECBEA1B1128BE8AF85F06A14 /* Pods-SkeletonableTableView.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		C4A5400B24BF6AE6005A8FD1 /* SkeletonableTableView */ = {
+			isa = PBXGroup;
+			children = (
+				C4A5400C24BF6B27005A8FD1 /* SkeletonableTableView.swift */,
+				C4A5400E24BF6B9E005A8FD1 /* SkeletonableTableViewCell.swift */,
+			);
+			path = SkeletonableTableView;
 			sourceTree = "<group>";
 		};
 		C4DEECF624B22B2B0098F9CB = {
@@ -114,6 +127,7 @@
 		C4DEED1824B22CD90098F9CB /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				C4A5400B24BF6AE6005A8FD1 /* SkeletonableTableView */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -300,6 +314,8 @@
 				C4DEED2024B231630098F9CB /* UITableView+Dequeue.swift in Sources */,
 				C4DEED0524B22B2B0098F9CB /* SceneDelegate.swift in Sources */,
 				C4DEED2F24B233660098F9CB /* UIView+NibLoading.swift in Sources */,
+				C4A5400F24BF6B9E005A8FD1 /* SkeletonableTableViewCell.swift in Sources */,
+				C4A5400D24BF6B27005A8FD1 /* SkeletonableTableView.swift in Sources */,
 				C4DEED2B24B2330B0098F9CB /* UICollectionView+Register.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
