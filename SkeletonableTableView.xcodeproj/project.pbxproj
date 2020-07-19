@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C40A8C5224C4A96500763A75 /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40A8C5024C4A96500763A75 /* ProfileCell.swift */; };
+		C40A8C5324C4A96500763A75 /* ProfileCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C40A8C5124C4A96500763A75 /* ProfileCell.xib */; };
+		C40A8C5724C4AB8000763A75 /* CircledCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40A8C5524C4AB8000763A75 /* CircledCell.swift */; };
+		C40A8C5824C4AB8000763A75 /* CircledCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C40A8C5624C4AB8000763A75 /* CircledCell.xib */; };
+		C40A8C5C24C4AC9E00763A75 /* CircledView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40A8C5B24C4AC9E00763A75 /* CircledView.swift */; };
+		C40A8C5F24C4AD4F00763A75 /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40A8C5E24C4AD4F00763A75 /* ShadowView.swift */; };
+		C40A8C6224C4B56F00763A75 /* TableBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40A8C6124C4B56F00763A75 /* TableBackgroundView.swift */; };
 		C4A5400D24BF6B27005A8FD1 /* SkeletonableTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A5400C24BF6B27005A8FD1 /* SkeletonableTableView.swift */; };
 		C4A5400F24BF6B9E005A8FD1 /* SkeletonableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A5400E24BF6B9E005A8FD1 /* SkeletonableTableViewCell.swift */; };
 		C4DEED0324B22B2B0098F9CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DEED0224B22B2B0098F9CB /* AppDelegate.swift */; };
@@ -32,6 +39,13 @@
 
 /* Begin PBXFileReference section */
 		3F72EC6BB1CB238F82DA1828 /* Pods-SkeletonableTableView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SkeletonableTableView.debug.xcconfig"; path = "Target Support Files/Pods-SkeletonableTableView/Pods-SkeletonableTableView.debug.xcconfig"; sourceTree = "<group>"; };
+		C40A8C5024C4A96500763A75 /* ProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
+		C40A8C5124C4A96500763A75 /* ProfileCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileCell.xib; sourceTree = "<group>"; };
+		C40A8C5524C4AB8000763A75 /* CircledCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircledCell.swift; sourceTree = "<group>"; };
+		C40A8C5624C4AB8000763A75 /* CircledCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CircledCell.xib; sourceTree = "<group>"; };
+		C40A8C5B24C4AC9E00763A75 /* CircledView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircledView.swift; sourceTree = "<group>"; };
+		C40A8C5E24C4AD4F00763A75 /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
+		C40A8C6124C4B56F00763A75 /* TableBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableBackgroundView.swift; sourceTree = "<group>"; };
 		C4A5400C24BF6B27005A8FD1 /* SkeletonableTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonableTableView.swift; sourceTree = "<group>"; };
 		C4A5400E24BF6B9E005A8FD1 /* SkeletonableTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonableTableViewCell.swift; sourceTree = "<group>"; };
 		C4DEECFF24B22B2B0098F9CB /* SkeletonableTableView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SkeletonableTableView.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -77,6 +91,57 @@
 				ECBEA1B1128BE8AF85F06A14 /* Pods-SkeletonableTableView.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		C40A8C4F24C4A8C200763A75 /* ProfileCell */ = {
+			isa = PBXGroup;
+			children = (
+				C40A8C5024C4A96500763A75 /* ProfileCell.swift */,
+				C40A8C5124C4A96500763A75 /* ProfileCell.xib */,
+			);
+			path = ProfileCell;
+			sourceTree = "<group>";
+		};
+		C40A8C5424C4AB3200763A75 /* CircledCell */ = {
+			isa = PBXGroup;
+			children = (
+				C40A8C5524C4AB8000763A75 /* CircledCell.swift */,
+				C40A8C5624C4AB8000763A75 /* CircledCell.xib */,
+			);
+			path = CircledCell;
+			sourceTree = "<group>";
+		};
+		C40A8C5924C4AC8500763A75 /* UIElements */ = {
+			isa = PBXGroup;
+			children = (
+				C40A8C5A24C4AC9200763A75 /* CircledView */,
+				C40A8C5D24C4AD4300763A75 /* ShadowView */,
+			);
+			path = UIElements;
+			sourceTree = "<group>";
+		};
+		C40A8C5A24C4AC9200763A75 /* CircledView */ = {
+			isa = PBXGroup;
+			children = (
+				C40A8C5B24C4AC9E00763A75 /* CircledView.swift */,
+			);
+			path = CircledView;
+			sourceTree = "<group>";
+		};
+		C40A8C5D24C4AD4300763A75 /* ShadowView */ = {
+			isa = PBXGroup;
+			children = (
+				C40A8C5E24C4AD4F00763A75 /* ShadowView.swift */,
+			);
+			path = ShadowView;
+			sourceTree = "<group>";
+		};
+		C40A8C6024C4B55700763A75 /* TableBackgroundView */ = {
+			isa = PBXGroup;
+			children = (
+				C40A8C6124C4B56F00763A75 /* TableBackgroundView.swift */,
+			);
+			path = TableBackgroundView;
 			sourceTree = "<group>";
 		};
 		C426F4C624C0B62400E8DCEC /* SkeletonTypeSelection */ = {
@@ -142,6 +207,7 @@
 				C4DEED0224B22B2B0098F9CB /* AppDelegate.swift */,
 				C4DEED0424B22B2B0098F9CB /* SceneDelegate.swift */,
 				C4DEED1E24B231300098F9CB /* Extensions */,
+				C40A8C5924C4AC8500763A75 /* UIElements */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -247,6 +313,9 @@
 		C4F63C4124C0C0FB0002BAC8 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C40A8C6024C4B55700763A75 /* TableBackgroundView */,
+				C40A8C5424C4AB3200763A75 /* CircledCell */,
+				C40A8C4F24C4A8C200763A75 /* ProfileCell */,
 				C4F63C4224C0C1010002BAC8 /* OptionCell */,
 			);
 			path = View;
@@ -332,7 +401,9 @@
 				C4F63BAA24C0B8170002BAC8 /* SkeletonTypeSelectionViewController.xib in Resources */,
 				C4F63C3924C0BBB60002BAC8 /* SkeletonableViewController.xib in Resources */,
 				C4F63C4624C0C1160002BAC8 /* OptionCell.xib in Resources */,
+				C40A8C5324C4A96500763A75 /* ProfileCell.xib in Resources */,
 				C4DEED0C24B22B2E0098F9CB /* Assets.xcassets in Resources */,
+				C40A8C5824C4AB8000763A75 /* CircledCell.xib in Resources */,
 				C4DEED1C24B22DEF0098F9CB /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -391,15 +462,20 @@
 				C4DEED0724B22B2B0098F9CB /* ViewController.swift in Sources */,
 				C4DEED2824B232BD0098F9CB /* UITableView+Register.swift in Sources */,
 				C4F63C4024C0C0050002BAC8 /* RowType.swift in Sources */,
+				C40A8C5C24C4AC9E00763A75 /* CircledView.swift in Sources */,
 				C4F63C4524C0C1160002BAC8 /* OptionCell.swift in Sources */,
 				C4DEED0324B22B2B0098F9CB /* AppDelegate.swift in Sources */,
 				C4F63BA924C0B8170002BAC8 /* SkeletonTypeSelectionViewController.swift in Sources */,
 				C4DEED2424B232170098F9CB /* UIColor+Hex.swift in Sources */,
+				C40A8C5724C4AB8000763A75 /* CircledCell.swift in Sources */,
 				C4DEED2024B231630098F9CB /* UITableView+Dequeue.swift in Sources */,
 				C4DEED0524B22B2B0098F9CB /* SceneDelegate.swift in Sources */,
 				C4DEED2F24B233660098F9CB /* UIView+NibLoading.swift in Sources */,
+				C40A8C6224C4B56F00763A75 /* TableBackgroundView.swift in Sources */,
 				C4A5400F24BF6B9E005A8FD1 /* SkeletonableTableViewCell.swift in Sources */,
+				C40A8C5224C4A96500763A75 /* ProfileCell.swift in Sources */,
 				C4A5400D24BF6B27005A8FD1 /* SkeletonableTableView.swift in Sources */,
+				C40A8C5F24C4AD4F00763A75 /* ShadowView.swift in Sources */,
 				C4DEED2B24B2330B0098F9CB /* UICollectionView+Register.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

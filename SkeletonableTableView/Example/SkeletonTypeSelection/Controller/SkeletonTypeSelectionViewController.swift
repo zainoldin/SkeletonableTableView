@@ -14,11 +14,15 @@ enum SkeletonType: String {
     case gradiend = "Gradient"
 }
 
-
 final class SkeletonTypeSelectionViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupNavigationBar()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         setupNavigationBar()
     }
     
@@ -28,6 +32,7 @@ final class SkeletonTypeSelectionViewController: UIViewController {
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.barTintColor = .white
     }
+    
     @IBAction func solidButtonDidTap(_ sender: UIButton) {
         
     }

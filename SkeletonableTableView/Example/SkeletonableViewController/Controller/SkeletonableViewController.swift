@@ -8,10 +8,24 @@
 
 import UIKit
 
-final class SkeletonableViewController: UIViewController {
+enum HomeNavigationBarAppearance {
+    case dark
+    case light
+}
 
+private enum Constants {
+    static let navigationBarAnimationDuration: TimeInterval = 0.2
+    static let navigationBarColorChangeYCoordinate: CGFloat = 92.0
+}
+
+final class SkeletonableViewController: UIViewController {
     private var type: SkeletonType
-    private var rows: [RowType] = [.option, .option, .option]
+    private var rows: [RowType] = [.profile, .circled, .option, .option, .option, .option]
+    private var navigationBarAppearance: HomeNavigationBarAppearance = .dark
+    private lazy var tableBackgroundView = TableBackgroundView()
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        navigationBarAppearance == .dark ? .lightContent : .default
+    }
     
     @IBOutlet weak var tableView: SkeletonableTableView!
     
@@ -29,6 +43,11 @@ final class SkeletonableViewController: UIViewController {
         setupUI()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        updateNavigationBarAppearance()
+    }
+    
     @IBAction func startButtonDidTap(_ sender: UIButton) {
         tableView.showAnimatedSkeleton()
     }
@@ -38,10 +57,32 @@ final class SkeletonableViewController: UIViewController {
     
     private func setupUI() {
         title = type.rawValue
+        tableView.backgroundView = tableBackgroundView
         tableView.delegate = self
         tableView.dataSource = self
-        [OptionCell.self].forEach(tableView.register(cellClass:))
+        [
+            OptionCell.self,
+            ProfileCell.self,
+            CircledCell.self
+        ].forEach(tableView.register(cellClass:))
         tableView.showAnimatedSkeleton()
+    }
+    
+    private func updateNavigationBarAppearance() {
+        navigationController?.navigationBar.barTintColor = navigationBarAppearance == .dark ? .txPrimary : .white
+        navigationController?.navigationBar.barStyle = navigationBarAppearance == .dark ? .black : .default
+        navigationController?.navigationBar.tintColor = navigationBarAppearance == .dark ? .white : .txPrimary
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: navigationBarAppearance == .dark ? UIColor.white : UIColor.txPrimary]
+    }
+    
+    private func animateNavigationBarTransitionIfNeeded(for newApperance: HomeNavigationBarAppearance) {
+        guard navigationBarAppearance != newApperance else { return }
+        navigationBarAppearance = newApperance
+        updateNavigationBarAppearance()
+        UIView.animate(withDuration: Constants.navigationBarAnimationDuration) {
+            self.setNeedsStatusBarAppearanceUpdate()
+            self.navigationController?.navigationBar.layoutIfNeeded()
+        }
     }
 }
 
@@ -52,9 +93,21 @@ extension SkeletonableViewController: UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch rows[indexPath.row] {
+        case .profile:
+            let cell: ProfileCell = tableView.dequeueReusableCell(for: indexPath)
+            return cell
+        case .circled:
+            let cell: CircledCell = tableView.dequeueReusableCell(for: indexPath)
+            return cell
         case .option:
             let cell: OptionCell = tableView.dequeueReusableCell(for: indexPath)
             return cell
         }
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        self.tableBackgroundView.updateSize(by: scrollView.contentOffset)
+        let isMovingDown = scrollView.contentOffset.y > Constants.navigationBarColorChangeYCoordinate
+        animateNavigationBarTransitionIfNeeded(for: isMovingDown ? .light : .dark)
     }
 }

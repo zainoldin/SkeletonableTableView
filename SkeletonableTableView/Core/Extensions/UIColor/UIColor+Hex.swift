@@ -27,3 +27,7 @@ extension UIColor {
                   alpha: alpha)
     }
 }
+
+extension UIColor {
+    static let txPrimary = UIColor(hex: "#181C1F")
+}

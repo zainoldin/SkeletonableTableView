@@ -9,6 +9,8 @@
 import Foundation
 
 enum RowType {
+    case profile
+    case circled
     case option
 }
 
