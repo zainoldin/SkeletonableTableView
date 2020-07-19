@@ -14,10 +14,15 @@ final class ProfileCell: SkeletonableTableViewCell {
         super.awakeFromNib()
     }
     
-    // SkeletonableTableView uses `SkeletonAppearance.default.tintColor` to show animation on all cels, but you can override this method and set the color you want to specific cell
+    // SkeletonableTableView uses `SkeletonAppearance.default.tintColor` to show skeleton on all cels, but you can override this method and set the color you want to specific cell
     override func showSolidSkeletonAnimating(color: UIColor = SkeletonAppearance.default.tintColor,
                                              animation: SkeletonLayerAnimation? = nil,
                                              transition: SkeletonTransitionStyle = .none) {
         super.showSolidSkeletonAnimating(color: .bgPrimaryLighten, animation: animation, transition: transition)
+    }
+    
+    override func showSolidSkeleton(color: UIColor = SkeletonAppearance.default.tintColor,
+                                    transition: SkeletonTransitionStyle = .none) {
+        super.showSkeleton(usingColor: .bgPrimaryLighten, transition: transition)
     }
 }

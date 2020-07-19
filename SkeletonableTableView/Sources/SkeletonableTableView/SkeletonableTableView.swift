@@ -13,15 +13,6 @@ private enum Constants {
     static let cornerRadius = 4
 }
 
-public enum SkeletonAnimationDirection {
-    case leftToRight
-    case rightLeft
-    case topBottom
-    case bottomTop
-    case topLeftBottomRight
-    case bottomRightTopLeft
-}
-
 public final class SkeletonableTableView: UITableView {
     @IBInspectable public var skeletonTintColor: UIColor = .lightGray {
         didSet {
@@ -33,6 +24,11 @@ public final class SkeletonableTableView: UITableView {
         didSet {
             SkeletonAppearance.default.multilineCornerRadius = multilineCornerRadius
         }
+    }
+    
+    private enum SkeletonType {
+        case solid
+        case solidAnimated(animation: SkeletonLayerAnimation?)
     }
 
     public override init(frame: CGRect, style: UITableView.Style) {
@@ -53,14 +49,15 @@ public final class SkeletonableTableView: UITableView {
     ///   - animation: The animation of the skeleton. Defaults to `nil`.
     ///   - transition: The style of the transition when the skeleton appears. Defaults to `.none`.
     public func showSolidSkeletonAnimating(animation: SkeletonLayerAnimation? = nil, transition: SkeletonTransitionStyle = .none) {
-        isHidden = true
-        reloadData()
-        DispatchQueue.main.async { [weak self] in
-            guard let self = self else { return }
-            self.isHidden = false
-            self.isScrollEnabled = false
-            self.showSolidSkeletonAnimatingOnVisibleCells(animation: animation, transition: transition)
-        }
+        showSkeleton(with: .solidAnimated(animation: animation), transition: transition)
+    }
+    
+    /// Shows the solid skeleton without animation and with default tint color on the SkeletonableTableView.
+    ///
+    /// - Parameters:
+    ///   - transition: The style of the transition when the skeleton appears. Defaults to `.none`.
+    public func showSolidSkeleton(transition: SkeletonTransitionStyle = .none) {
+        showSkeleton(with: .solid, transition: transition)
     }
     
     /// Hides the  skeleton on the SkeletonableTableView.
@@ -70,14 +67,35 @@ public final class SkeletonableTableView: UITableView {
         reloadData()
     }
     
-    private func showSolidSkeletonAnimatingOnVisibleCells(animation: SkeletonLayerAnimation?, transition: SkeletonTransitionStyle) {
+    private func showSkeleton(with type: SkeletonType, transition: SkeletonTransitionStyle) {
+        isHidden = true
+        reloadData()
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            self.isHidden = false
+            self.isScrollEnabled = false
+            self.showSkeletonOnVisibleCells(with: type, transition: transition)
+        }
+    }
+    
+    private func showSkeletonOnVisibleCells(with type: SkeletonType, transition: SkeletonTransitionStyle) {
         for cell in visibleCells {
             cell.isUserInteractionEnabled = false
             guard let skeletonableCell = cell as? SkeletonableTableViewCell else {
-                cell.showAnimatedSkeleton(usingColor: skeletonTintColor, animation: animation, transition: transition)
+                switch type {
+                case .solid:
+                    cell.showSkeleton(usingColor: skeletonTintColor, transition: transition)
+                case let .solidAnimated(animation):
+                    cell.showAnimatedSkeleton(usingColor: skeletonTintColor, animation: animation, transition: transition)
+                }
                 return
             }
-            skeletonableCell.showSolidSkeletonAnimating(animation: animation, transition: transition)
+            switch type {
+            case .solid:
+                skeletonableCell.showSolidSkeleton(color: skeletonTintColor, transition: transition)
+            case let .solidAnimated(animation):
+                skeletonableCell.showSolidSkeletonAnimating(color: skeletonTintColor,animation: animation, transition: transition)
+            }
         }
     }
     

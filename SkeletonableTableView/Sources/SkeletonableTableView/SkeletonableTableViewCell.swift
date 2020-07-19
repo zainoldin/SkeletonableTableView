@@ -27,7 +27,7 @@ open class SkeletonableTableViewCell: UITableViewCell {
     /// Shows the solid animated  skeleton on the SkeletonableTableViewCell.
     ///
     /// If animation is nil, pulse animation will be used.
-    /// SkeletonableTableView uses `SkeletonAppearance.default.tintColor` to show animation on all cels, but you can override this method and set the color you want to specific cell
+    /// SkeletonableTableView uses `SkeletonAppearance.default.tintColor` to show skeleton on all cels, but you can override this method and set the color you want to specific cell
     ///
     /// - Parameters:
     ///   - color: The color of skeleton. Defaults to `SkeletonAppearance.default.tintColor`.
@@ -38,7 +38,20 @@ open class SkeletonableTableViewCell: UITableViewCell {
                                          transition: SkeletonTransitionStyle = .none) {
         showAnimatedSkeleton(usingColor: color, animation: nil, transition: transition)
     }
-
+    
+    /// Shows the solid animated  skeleton on the SkeletonableTableViewCell.
+    ///
+    /// If animation is nil, pulse animation will be used.
+    /// SkeletonableTableView uses `SkeletonAppearance.default.tintColor` to show skeleton on all cels, but you can override this method and set the color you want to specific cell
+    ///
+    /// - Parameters:
+    ///   - color: The color of skeleton. Defaults to `SkeletonAppearance.default.tintColor`.
+    ///   - transition: The style of the transition when the skeleton appears. Defaults to `.none`.
+    open func showSolidSkeleton(color: UIColor = SkeletonAppearance.default.tintColor,
+                                         transition: SkeletonTransitionStyle = .none) {
+        showSkeleton(usingColor: color, transition: transition)
+    }
+    
     /// Hides the skeleton on the SkeletonableTableViewCell.
     ///
     /// - Parameters:

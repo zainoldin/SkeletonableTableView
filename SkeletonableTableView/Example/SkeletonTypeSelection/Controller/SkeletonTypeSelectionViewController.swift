@@ -34,7 +34,8 @@ final class SkeletonTypeSelectionViewController: UIViewController {
     }
     
     @IBAction func solidButtonDidTap(_ sender: UIButton) {
-        
+        let viewController = SkeletonableViewController(type: .solid)
+        navigationController?.pushViewController(viewController, animated: true)
     }
     
     @IBAction func solidAnimatedButtonDidTap(_ sender: UIButton) {
