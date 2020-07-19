@@ -24,25 +24,32 @@ open class SkeletonableTableViewCell: UITableViewCell {
         hideSkeleton()
     }
     
-    /// Shows the animated skeleton with default tint color on the SkeletonableTableViewCell.
+    /// Shows the solid animated  skeleton on the SkeletonableTableViewCell.
     ///
-    /// if animation is nil, pulse animation will be used.
+    /// If animation is nil, pulse animation will be used.
+    /// SkeletonableTableView uses `SkeletonAppearance.default.tintColor` to show animation on all cels, but you can override this method and set the color you want to specific cell
     ///
     /// - Parameters:
+    ///   - color: The color of skeleton. Defaults to `SkeletonAppearance.default.tintColor`.
     ///   - animation: The animation of the skeleton. Defaults to `nil`. 
     ///   - transition: The style of the transition when the skeleton appears. Defaults to `.none`.
-    open func showAnimatedSkeleton(animation: SkeletonLayerAnimation? = nil, transition: SkeletonTransitionStyle = .none) {
-        showAnimatedSkeleton(usingColor: SkeletonAppearance.default.tintColor, animation: nil, transition: transition)
+    open func showSolidSkeletonAnimating(color: UIColor = SkeletonAppearance.default.tintColor,
+                                         animation: SkeletonLayerAnimation? = nil,
+                                         transition: SkeletonTransitionStyle = .none) {
+        showAnimatedSkeleton(usingColor: color, animation: nil, transition: transition)
     }
 
     /// Hides the skeleton on the SkeletonableTableViewCell.
     ///
     /// - Parameters:
-    ///   - transition: The style of the transition when the skeleton appears. Defaults to `.crossDissolve(0.25)`.
-    open func hideSkeleton(transition: SkeletonTransitionStyle = .crossDissolve(0.25)) {
+    ///   - transition: The style of the transition when the skeleton appears. Defaults to `.none`.
+    open func hideSkeleton(transition: SkeletonTransitionStyle = .none) {
         hideSkeleton(reloadDataAfter: false, transition: transition)
     }
 
+    /// Setup initial skeletonable configurations of cell
+    ///
+    /// This method makes skeletonable only subviews of contentView as default, but you can ovveride it and change skeletonable configuration for specific views
     open func setupSkeletonableViews() {
         var views = contentView.subviews
         views.append(self)

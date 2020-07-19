@@ -49,10 +49,10 @@ final class SkeletonableViewController: UIViewController {
     }
     
     @IBAction func startButtonDidTap(_ sender: UIButton) {
-        tableView.showAnimatedSkeleton()
+        tableView.showSolidSkeletonAnimating()
     }
     @IBAction func hideButtonDidTap(_ sender: UIButton) {
-        tableView.hideSkeleton()
+        tableView.hideSkeletonAnimating()
     }
     
     private func setupUI() {
@@ -65,7 +65,7 @@ final class SkeletonableViewController: UIViewController {
             ProfileCell.self,
             CircledCell.self
         ].forEach(tableView.register(cellClass:))
-        tableView.showAnimatedSkeleton()
+        tableView.showSolidSkeletonAnimating()
     }
     
     private func updateNavigationBarAppearance() {

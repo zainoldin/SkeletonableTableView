@@ -18,6 +18,7 @@ class CircledCell: SkeletonableTableViewCell {
         super.awakeFromNib()
     }
     
+    // SkeletonableTableView makes skeletonable only subviews of contentView as default, but you can ovveride it and change skeletonable configuration for specific views
     override func setupSkeletonableViews() {
         super.setupSkeletonableViews()
         let views: [UIView] = [[conainerView], conainerView.subviews, stackView.arrangedSubviews].flatMap { $0 }

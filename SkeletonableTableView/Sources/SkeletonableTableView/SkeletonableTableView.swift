@@ -45,41 +45,39 @@ public final class SkeletonableTableView: UITableView {
         setup()
     }
     
-    /// Shows the animated skeleton with default tint color on the SkeletonableTableView.
+    /// Shows the solid animated skeleton with default tint color on the SkeletonableTableView.
     ///
     /// if animation is nil, pulse animation will be used.
     ///
     /// - Parameters:
     ///   - animation: The animation of the skeleton. Defaults to `nil`.
     ///   - transition: The style of the transition when the skeleton appears. Defaults to `.none`.
-    public func showAnimatedSkeleton(animation: SkeletonLayerAnimation? = nil, transition: SkeletonTransitionStyle = .none) {
-        reloadData()
+    public func showSolidSkeletonAnimating(animation: SkeletonLayerAnimation? = nil, transition: SkeletonTransitionStyle = .none) {
         isHidden = true
+        reloadData()
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             self.isHidden = false
             self.isScrollEnabled = false
-            self.showAnimatedSkeletonOnVisibleCells(animation: animation, transition: transition)
+            self.showSolidSkeletonAnimatingOnVisibleCells(animation: animation, transition: transition)
         }
     }
     
     /// Hides the  skeleton on the SkeletonableTableView.
-    public func hideSkeleton() {
+    public func hideSkeletonAnimating() {
         isScrollEnabled = true
         hideAnimatedSkeletonOnVisibleCells()
         reloadData()
-        beginUpdates()
-        endUpdates()
     }
     
-    private func showAnimatedSkeletonOnVisibleCells(animation: SkeletonLayerAnimation?, transition: SkeletonTransitionStyle) {
+    private func showSolidSkeletonAnimatingOnVisibleCells(animation: SkeletonLayerAnimation?, transition: SkeletonTransitionStyle) {
         for cell in visibleCells {
             cell.isUserInteractionEnabled = false
             guard let skeletonableCell = cell as? SkeletonableTableViewCell else {
                 cell.showAnimatedSkeleton(usingColor: skeletonTintColor, animation: animation, transition: transition)
                 return
             }
-            skeletonableCell.showAnimatedSkeleton(animation: animation, transition: transition)
+            skeletonableCell.showSolidSkeletonAnimating(animation: animation, transition: transition)
         }
     }
     
