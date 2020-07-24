@@ -22,7 +22,8 @@ final class SkeletonableViewController: UIViewController {
     private var type: SelectionSkeletonType
     private var sections: [SectionType] = [
         .none(rows: [.profile, .circled]),
-        .regular(title: "Options", rows: [.option, .option, .option, .option])
+        .regular(title: "Options", rows: [.option, .option]),
+        .regular(title: "Options", rows: [.option])
     ]
     
     private var navigationBarAppearance: HomeNavigationBarAppearance = .dark
@@ -55,6 +56,7 @@ final class SkeletonableViewController: UIViewController {
     @IBAction func startButtonDidTap(_ sender: UIButton) {
         showSkeleton()
     }
+    
     @IBAction func hideButtonDidTap(_ sender: UIButton) {
         tableView.hideSkeletonAnimating()
     }
@@ -80,7 +82,7 @@ final class SkeletonableViewController: UIViewController {
         case .solidAnimated:
             tableView.showSolidSkeletonAnimating()
         case .gradiend:
-            break
+            tableView.showGradientedSkeleton()
         }
     }
     

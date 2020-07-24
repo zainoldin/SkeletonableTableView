@@ -44,6 +44,7 @@ final class SkeletonTypeSelectionViewController: UIViewController {
     }
     
     @IBAction func gradientButtonDidTap(_ sender: UIButton) {
-        
+        let viewController = SkeletonableViewController(type: .gradiend)
+        navigationController?.pushViewController(viewController, animated: true)
     }
 }

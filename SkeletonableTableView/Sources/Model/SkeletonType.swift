@@ -12,4 +12,5 @@ import Foundation
 public enum SkeletonType {
     case solid
     case solidAnimated(animation: SkeletonLayerAnimation?)
+    case gradient(secondaryColor: UIColor?)
 }

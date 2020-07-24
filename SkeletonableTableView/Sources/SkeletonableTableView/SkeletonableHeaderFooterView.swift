@@ -22,10 +22,10 @@ open class SkeletonableHeaderFooterView: UITableViewHeaderFooterView {
         hideSkeleton()
     }
     
-    /// Shows the solid animated  skeleton on the SkeletonableTableViewCell.
+    /// Shows the solid animated  skeleton on the SkeletonableHeaderFooterView.
     ///
     /// If animation is nil, pulse animation will be used.
-    /// SkeletonableTableView uses `SkeletonAppearance.default.tintColor` to show skeleton on all cels, but you can override this method and set the color you want to specific cell
+    /// SkeletonableTableView uses `SkeletonAppearance.default.tintColor` to show skeleton on all visbile headerFooterViews, but you can override this method and set the color you want to specific view
     ///
     /// - Parameters:
     ///   - color: The color of skeleton. Defaults to `SkeletonAppearance.default.tintColor`.
@@ -37,10 +37,10 @@ open class SkeletonableHeaderFooterView: UITableViewHeaderFooterView {
         showAnimatedSkeleton(usingColor: color, animation: nil, transition: transition)
     }
     
-    /// Shows the solid animated  skeleton on the SkeletonableTableViewCell.
+    /// Shows the solid animated  skeleton on the SkeletonableHeaderFooterView.
     ///
     /// If animation is nil, pulse animation will be used.
-    /// SkeletonableTableView uses `SkeletonAppearance.default.tintColor` to show skeleton on all cels, but you can override this method and set the color you want to specific cell
+    /// SkeletonableTableView uses `SkeletonAppearance.default.tintColor` to show skeleton on all visbile headerFooterViews, but you can override this method and set the color you want to specific view
     ///
     /// - Parameters:
     ///   - color: The color of skeleton. Defaults to `SkeletonAppearance.default.tintColor`.
@@ -50,7 +50,19 @@ open class SkeletonableHeaderFooterView: UITableViewHeaderFooterView {
         showSkeleton(usingColor: color, transition: transition)
     }
     
-    /// Hides the skeleton on the SkeletonableTableViewCell.
+    /// Shows the gradient skeleton without animation on the SkeletonableHeaderFooterView.
+    ///
+    /// SkeletonableTableView uses `SkeletonAppearance.default.gradient` to show skeleton on all visbile headerFooterViews, but you can override this method and set the color you want to specific view
+    ///
+    /// - Parameters:
+    ///   - gradient: The gradient of skeleton. Defaults to `SkeletonAppearance.default.gradient`.
+    ///   - transition: The style of the transition when the skeleton appears. Defaults to `.none`.
+    open func showGradientedSkeleton(gradient: SkeletonGradient = SkeletonAppearance.default.gradient,
+                                   transition: SkeletonTransitionStyle = .none) {
+        showGradientSkeleton(usingGradient: gradient, transition: transition)
+    }
+    
+    /// Hides the skeleton on the SkeletonableHeaderFooterView.
     ///
     /// - Parameters:
     ///   - transition: The style of the transition when the skeleton appears. Defaults to `.none`.
