@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum SkeletonType: String {
+enum SelectionSkeletonType: String {
     case solid = "Solid"
     case solidAnimated = "Solid Animated"
     case gradiend = "Gradient"

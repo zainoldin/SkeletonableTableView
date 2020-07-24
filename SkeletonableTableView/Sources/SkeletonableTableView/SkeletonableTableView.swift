@@ -14,23 +14,24 @@ private enum Constants {
 }
 
 public final class SkeletonableTableView: UITableView {
-    @IBInspectable public var skeletonTintColor: UIColor = .lightGray {
+    
+    /// The color of skeleton. Defaults to `.skeletonDefault`.
+    @IBInspectable public var skeletonTintColor: UIColor = .skeletonDefault {
         didSet {
             SkeletonAppearance.default.tintColor = skeletonTintColor
         }
     }
 
+    /// The corner radius of skeletoned labels . Defaults to `4`.
     @IBInspectable public var multilineCornerRadius: Int = Constants.cornerRadius {
         didSet {
+            prefferedMultilineCornerRadius = multilineCornerRadius
             SkeletonAppearance.default.multilineCornerRadius = multilineCornerRadius
         }
     }
     
-    private enum SkeletonType {
-        case solid
-        case solidAnimated(animation: SkeletonLayerAnimation?)
-    }
-
+    private var prefferedMultilineCornerRadius = Constants.cornerRadius
+    
     public override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
         setup()
@@ -63,7 +64,8 @@ public final class SkeletonableTableView: UITableView {
     /// Hides the  skeleton on the SkeletonableTableView.
     public func hideSkeletonAnimating() {
         isScrollEnabled = true
-        hideAnimatedSkeletonOnVisibleCells()
+        hideSkeletonOnVisibleCells()
+        hideSkeletonOnVisibleHeaderFooterViews()
         reloadData()
     }
     
@@ -75,6 +77,7 @@ public final class SkeletonableTableView: UITableView {
             self.isHidden = false
             self.isScrollEnabled = false
             self.showSkeletonOnVisibleCells(with: type, transition: transition)
+            self.showSkeletonOnVisibleHeaderFooterViews(with: type, transition: transition)
         }
     }
     
@@ -88,7 +91,7 @@ public final class SkeletonableTableView: UITableView {
                 case let .solidAnimated(animation):
                     cell.showAnimatedSkeleton(usingColor: skeletonTintColor, animation: animation, transition: transition)
                 }
-                return
+                continue
             }
             switch type {
             case .solid:
@@ -99,20 +102,70 @@ public final class SkeletonableTableView: UITableView {
         }
     }
     
-    private func hideAnimatedSkeletonOnVisibleCells() {
+    private func hideSkeletonOnVisibleCells() {
         for cell in visibleCells {
             cell.isUserInteractionEnabled = true
             guard let skeletonableCell = cell as? SkeletonableTableViewCell else {
                 cell.hideSkeleton()
-                return
+                continue
             }
             skeletonableCell.hideSkeleton()
         }
     }
-
+    
+    private func hideSkeletonOnVisibleHeaderFooterViews() {
+        let headerFooterViews = getVisibleHeaderFooterViews()
+        for headerFooterView in headerFooterViews {
+            headerFooterView.isUserInteractionEnabled = true
+            guard let skeletonableHeaderFooterView = headerFooterView as? SkeletonableHeaderFooterView else {
+                headerFooterView.hideSkeleton()
+                continue
+            }
+            skeletonableHeaderFooterView.hideSkeleton()
+        }
+    }
+    
+    private func showSkeletonOnVisibleHeaderFooterViews(with type: SkeletonType, transition: SkeletonTransitionStyle) {
+        let headerFooterViews = getVisibleHeaderFooterViews()
+        for headerFooterView in headerFooterViews {
+            headerFooterView.isUserInteractionEnabled = false
+            guard let skeletonableHeaderFooterView = headerFooterView as? SkeletonableHeaderFooterView else {
+                switch type {
+                case .solid:
+                    headerFooterView.showSkeleton(usingColor: skeletonTintColor, transition: transition)
+                case let .solidAnimated(animation):
+                    headerFooterView.showAnimatedSkeleton(usingColor: skeletonTintColor, animation: animation, transition: transition)
+                }
+                continue
+            }
+            switch type {
+            case .solid:
+                skeletonableHeaderFooterView.showSolidSkeleton(color: skeletonTintColor, transition: transition)
+            case let .solidAnimated(animation):
+                skeletonableHeaderFooterView.showSolidSkeletonAnimating(color: skeletonTintColor,animation: animation, transition: transition)
+            }
+        }
+    }
+    
     private func setup() {
         tableFooterView = UIView()
         isSkeletonable = true
-        SkeletonAppearance.default.multilineCornerRadius = Constants.cornerRadius
+        SkeletonAppearance.default.multilineCornerRadius = prefferedMultilineCornerRadius
+    }
+    
+    private func getVisibleHeaderFooterViews() -> [UITableViewHeaderFooterView] {
+        guard let visibleRows = indexPathsForVisibleRows else { return [] }
+        let visibleSectionIndexes = visibleRows.map { $0.section }.removeDuplicates()
+        return visibleSectionIndexes.compactMap { headerView(forSection: $0) }
+    }
+}
+
+private extension Array where Element: Equatable {
+    func removeDuplicates() -> [Element] {
+        var result: [Element] = []
+        for value in self where !result.contains(value) {
+            result.append(value)
+        }
+        return result
     }
 }

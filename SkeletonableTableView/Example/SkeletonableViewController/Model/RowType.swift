@@ -8,9 +8,17 @@
 
 import Foundation
 
-enum RowType {
+enum SectionType {
+    case none(rows: [NoneSectionRowType])
+    case regular(title: String, rows: [RagularSectionRowType])
+}
+
+enum NoneSectionRowType {
     case profile
     case circled
+}
+
+enum RagularSectionRowType {
     case option
 }
 

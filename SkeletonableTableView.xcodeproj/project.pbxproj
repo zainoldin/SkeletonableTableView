@@ -14,6 +14,9 @@
 		C40A8C5C24C4AC9E00763A75 /* CircledView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40A8C5B24C4AC9E00763A75 /* CircledView.swift */; };
 		C40A8C5F24C4AD4F00763A75 /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40A8C5E24C4AD4F00763A75 /* ShadowView.swift */; };
 		C40A8C6224C4B56F00763A75 /* TableBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40A8C6124C4B56F00763A75 /* TableBackgroundView.swift */; };
+		C47B082E24C60A7200CCDDB6 /* RegularHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47B082D24C60A7200CCDDB6 /* RegularHeaderView.swift */; };
+		C47B083224C60FB600CCDDB6 /* SkeletonableHeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47B083124C60FB600CCDDB6 /* SkeletonableHeaderFooterView.swift */; };
+		C47B083524C6108200CCDDB6 /* SkeletonType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47B083424C6108200CCDDB6 /* SkeletonType.swift */; };
 		C4A5400D24BF6B27005A8FD1 /* SkeletonableTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A5400C24BF6B27005A8FD1 /* SkeletonableTableView.swift */; };
 		C4A5400F24BF6B9E005A8FD1 /* SkeletonableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A5400E24BF6B9E005A8FD1 /* SkeletonableTableViewCell.swift */; };
 		C4DEED0324B22B2B0098F9CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DEED0224B22B2B0098F9CB /* AppDelegate.swift */; };
@@ -46,6 +49,9 @@
 		C40A8C5B24C4AC9E00763A75 /* CircledView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircledView.swift; sourceTree = "<group>"; };
 		C40A8C5E24C4AD4F00763A75 /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
 		C40A8C6124C4B56F00763A75 /* TableBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableBackgroundView.swift; sourceTree = "<group>"; };
+		C47B082D24C60A7200CCDDB6 /* RegularHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularHeaderView.swift; sourceTree = "<group>"; };
+		C47B083124C60FB600CCDDB6 /* SkeletonableHeaderFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonableHeaderFooterView.swift; sourceTree = "<group>"; };
+		C47B083424C6108200CCDDB6 /* SkeletonType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonType.swift; sourceTree = "<group>"; };
 		C4A5400C24BF6B27005A8FD1 /* SkeletonableTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonableTableView.swift; sourceTree = "<group>"; };
 		C4A5400E24BF6B9E005A8FD1 /* SkeletonableTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonableTableViewCell.swift; sourceTree = "<group>"; };
 		C4DEECFF24B22B2B0098F9CB /* SkeletonableTableView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SkeletonableTableView.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -152,11 +158,28 @@
 			path = SkeletonTypeSelection;
 			sourceTree = "<group>";
 		};
+		C47B082C24C60A4200CCDDB6 /* RegularHeaderView */ = {
+			isa = PBXGroup;
+			children = (
+				C47B082D24C60A7200CCDDB6 /* RegularHeaderView.swift */,
+			);
+			path = RegularHeaderView;
+			sourceTree = "<group>";
+		};
+		C47B083324C6105800CCDDB6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C47B083424C6108200CCDDB6 /* SkeletonType.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		C4A5400B24BF6AE6005A8FD1 /* SkeletonableTableView */ = {
 			isa = PBXGroup;
 			children = (
 				C4A5400C24BF6B27005A8FD1 /* SkeletonableTableView.swift */,
 				C4A5400E24BF6B9E005A8FD1 /* SkeletonableTableViewCell.swift */,
+				C47B083124C60FB600CCDDB6 /* SkeletonableHeaderFooterView.swift */,
 			);
 			path = SkeletonableTableView;
 			sourceTree = "<group>";
@@ -215,6 +238,7 @@
 		C4DEED1824B22CD90098F9CB /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				C47B083324C6105800CCDDB6 /* Model */,
 				C4A5400B24BF6AE6005A8FD1 /* SkeletonableTableView */,
 			);
 			path = Sources;
@@ -313,10 +337,11 @@
 		C4F63C4124C0C0FB0002BAC8 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				C40A8C6024C4B55700763A75 /* TableBackgroundView */,
 				C40A8C5424C4AB3200763A75 /* CircledCell */,
-				C40A8C4F24C4A8C200763A75 /* ProfileCell */,
 				C4F63C4224C0C1010002BAC8 /* OptionCell */,
+				C40A8C4F24C4A8C200763A75 /* ProfileCell */,
+				C47B082C24C60A4200CCDDB6 /* RegularHeaderView */,
+				C40A8C6024C4B55700763A75 /* TableBackgroundView */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -465,6 +490,9 @@
 				C40A8C5C24C4AC9E00763A75 /* CircledView.swift in Sources */,
 				C4F63C4524C0C1160002BAC8 /* OptionCell.swift in Sources */,
 				C4DEED0324B22B2B0098F9CB /* AppDelegate.swift in Sources */,
+				C47B082E24C60A7200CCDDB6 /* RegularHeaderView.swift in Sources */,
+				C47B083224C60FB600CCDDB6 /* SkeletonableHeaderFooterView.swift in Sources */,
+				C47B083524C6108200CCDDB6 /* SkeletonType.swift in Sources */,
 				C4F63BA924C0B8170002BAC8 /* SkeletonTypeSelectionViewController.swift in Sources */,
 				C4DEED2424B232170098F9CB /* UIColor+Hex.swift in Sources */,
 				C40A8C5724C4AB8000763A75 /* CircledCell.swift in Sources */,

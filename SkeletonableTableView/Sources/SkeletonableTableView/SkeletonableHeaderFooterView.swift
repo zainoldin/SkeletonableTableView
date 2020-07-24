@@ -1,8 +1,8 @@
 //
-//  SkeletonableTableViewCell.swift
+//  SkeletonableHeaderFooterView.swift
 //  SkeletonableTableView
 //
-//  Created by Almas Zainoldin on 7/15/20.
+//  Created by Almas Zainoldin on 7/20/20.
 //  Copyright © 2020 crococoders. All rights reserved.
 //
 
@@ -13,12 +13,10 @@ private enum Constants {
     static let cornerRadius: Float = 4.0
 }
 
-open class SkeletonableTableViewCell: UITableViewCell {
-    open override func awakeFromNib() {
-        super.awakeFromNib()
-        setupSkeletonableViews()
-    }
-
+// Important: add all UI Elemetns to contentView, not to root view. Otherwise, only rootView will be skeletoned and not work as expected.
+// I suggest to realize your custom UITableViewHeaderFooterView programatically as I couldn't find way to add UI elements to contentView by interface builder
+open class SkeletonableHeaderFooterView: UITableViewHeaderFooterView {
+            
     open override func prepareForReuse() {
         super.prepareForReuse()
         hideSkeleton()
@@ -31,7 +29,7 @@ open class SkeletonableTableViewCell: UITableViewCell {
     ///
     /// - Parameters:
     ///   - color: The color of skeleton. Defaults to `SkeletonAppearance.default.tintColor`.
-    ///   - animation: The animation of the skeleton. Defaults to `nil`. 
+    ///   - animation: The animation of the skeleton. Defaults to `nil`.
     ///   - transition: The style of the transition when the skeleton appears. Defaults to `.none`.
     open func showSolidSkeletonAnimating(color: UIColor = SkeletonAppearance.default.tintColor,
                                          animation: SkeletonLayerAnimation? = nil,
@@ -59,12 +57,12 @@ open class SkeletonableTableViewCell: UITableViewCell {
     open func hideSkeleton(transition: SkeletonTransitionStyle = .none) {
         hideSkeleton(reloadDataAfter: false, transition: transition)
     }
-
-    /// Setup initial skeletonable configurations of cell
+    
+    /// Setup initial skeletonable configurations of view
     ///
     /// If your child class is relized programatically you should call this method in init functions (child class) to make all needed subviews skeletonable. Otherwise do nothing
     ///
-    /// This method makes skeletonable only subviews of contentView as default, but you can ovveride it and change skeletonable configuration for specific views
+    /// This method makes skeletonable only subviews of current view as default, but you can ovveride it and change skeletonable configuration for specific views
     open func setupSkeletonableViews() {
         var views = contentView.subviews
         views.append(self)
@@ -74,3 +72,4 @@ open class SkeletonableTableViewCell: UITableViewCell {
         }
     }
 }
+

@@ -19,8 +19,12 @@ private enum Constants {
 }
 
 final class SkeletonableViewController: UIViewController {
-    private var type: SkeletonType
-    private var rows: [RowType] = [.profile, .circled, .option, .option, .option, .option]
+    private var type: SelectionSkeletonType
+    private var sections: [SectionType] = [
+        .none(rows: [.profile, .circled]),
+        .regular(title: "Options", rows: [.option, .option, .option, .option])
+    ]
+    
     private var navigationBarAppearance: HomeNavigationBarAppearance = .dark
     private lazy var tableBackgroundView = TableBackgroundView()
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -29,7 +33,7 @@ final class SkeletonableViewController: UIViewController {
     
     @IBOutlet weak var tableView: SkeletonableTableView!
     
-    init(type: SkeletonType) {
+    init(type: SelectionSkeletonType) {
         self.type = type
         super.init(nibName: String(describing: Self.self), bundle: nil)
     }
@@ -65,6 +69,7 @@ final class SkeletonableViewController: UIViewController {
             ProfileCell.self,
             CircledCell.self
         ].forEach(tableView.register(cellClass:))
+        tableView.register(RegularHeaderView.self, forHeaderFooterViewReuseIdentifier: "\(RegularHeaderView.self)")
         showSkeleton()
     }
     
@@ -98,21 +103,56 @@ final class SkeletonableViewController: UIViewController {
 }
 
 extension SkeletonableViewController: UITableViewDelegate, UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        sections.count
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        rows.count
+        switch sections[section] {
+        case let .none(rows):
+            return rows.count
+        case let .regular(_, rows):
+            return rows.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch rows[indexPath.row] {
-        case .profile:
-            let cell: ProfileCell = tableView.dequeueReusableCell(for: indexPath)
-            return cell
-        case .circled:
-            let cell: CircledCell = tableView.dequeueReusableCell(for: indexPath)
-            return cell
-        case .option:
-            let cell: OptionCell = tableView.dequeueReusableCell(for: indexPath)
-            return cell
+        switch sections[indexPath.section] {
+        case let .none(rows):
+            switch rows[indexPath.row] {
+            case .profile:
+                let cell: ProfileCell = tableView.dequeueReusableCell(for: indexPath)
+                return cell
+            case .circled:
+                let cell: CircledCell = tableView.dequeueReusableCell(for: indexPath)
+                return cell
+            }
+        case let .regular(_, rows):
+            switch rows[indexPath.row] {
+            case .option:
+                let cell: OptionCell = tableView.dequeueReusableCell(for: indexPath)
+                return cell
+            }
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        switch sections[section] {
+        case .none:
+            return nil
+        case let .regular(title, _):
+            let view: RegularHeaderView = tableView.dequeueReusableHeaderFooterView()
+            view.configure(with: title)
+            return view
+        }
+    }
+
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        switch sections[section] {
+        case .none:
+            return 0
+        case .regular:
+            return 56.0
         }
     }
     
