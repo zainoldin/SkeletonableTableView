@@ -60,10 +60,26 @@ open class SkeletonableTableViewCell: UITableViewCell {
     ///   - gradient: The gradient of skeleton. Defaults to `SkeletonAppearance.default.gradient`.
     ///   - transition: The style of the transition when the skeleton appears. Defaults to `.none`.
     open func showGradientedSkeleton(gradient: SkeletonGradient = SkeletonAppearance.default.gradient,
-                                   transition: SkeletonTransitionStyle = .none) {
+                                     transition: SkeletonTransitionStyle = .none) {
         showGradientSkeleton(usingGradient: gradient, transition: transition)
     }
     
+    /// Shows the gradient animated skeleton on the SkeletonableTableViewCell.
+    ///
+    /// SkeletonableTableView uses `SkeletonAppearance.default.gradient` to show skeleton on all cells, but you can override this method and set the color you want to specific cell
+    ///
+    /// - Parameters:
+    ///   - gradient: The gradient of skeleton. Defaults to `SkeletonAppearance.default.gradient`.
+    ///   - gradientDirection: The gradient of skeleton. Defaults to `.leftRight`.
+    ///   - duration: The duration of the animation. Defaults to `1.5`.
+    ///   - transition: The style of the transition when the skeleton appears. Defaults to `.none`.
+    open func showGradientedSkeletonAnimating(gradient: SkeletonGradient = SkeletonAppearance.default.gradient,
+                                              gradientDirection: GradientDirection = .leftRight,
+                                              duration: Double = 1.5,
+                                              transition: SkeletonTransitionStyle = .none) {
+        let animation = SkeletonAnimationBuilder().makeSlidingAnimation(withDirection: gradientDirection, duration: duration)
+        showAnimatedGradientSkeleton(usingGradient: gradient, animation: animation, transition: transition)
+    }
     
     /// Hides the skeleton on the SkeletonableTableViewCell.
     ///

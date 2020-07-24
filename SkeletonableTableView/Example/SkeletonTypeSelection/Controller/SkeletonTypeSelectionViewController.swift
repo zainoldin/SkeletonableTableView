@@ -11,7 +11,8 @@ import UIKit
 enum SelectionSkeletonType: String {
     case solid = "Solid"
     case solidAnimated = "Solid Animated"
-    case gradiend = "Gradient"
+    case gradient = "Gradient"
+    case gradientAnimated = "Gradient Animated"
 }
 
 final class SkeletonTypeSelectionViewController: UIViewController {
@@ -44,7 +45,12 @@ final class SkeletonTypeSelectionViewController: UIViewController {
     }
     
     @IBAction func gradientButtonDidTap(_ sender: UIButton) {
-        let viewController = SkeletonableViewController(type: .gradiend)
+        let viewController = SkeletonableViewController(type: .gradient)
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    @IBAction func gradientAnimatedButtonDidTap(_ sender: UIButton) {
+        let viewController = SkeletonableViewController(type: .gradientAnimated)
         navigationController?.pushViewController(viewController, animated: true)
     }
 }

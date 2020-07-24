@@ -18,7 +18,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="jA7-5B-w5r">
-                    <rect key="frame" x="16" y="373" width="382" height="160"/>
+                    <rect key="frame" x="16" y="345" width="382" height="216"/>
                     <subviews>
                         <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jy9-8e-2bb">
                             <rect key="frame" x="0.0" y="0.0" width="382" height="48"/>
@@ -75,6 +75,25 @@
                             </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="gradientButtonDidTap:" destination="-1" eventType="touchUpInside" id="K6H-dK-Bjq"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hA0-Rj-aX8">
+                            <rect key="frame" x="0.0" y="168" width="382" height="48"/>
+                            <color key="backgroundColor" red="1" green="0.85882352939999995" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="48" id="Ezv-Uc-Z2f"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                            <state key="normal" title="Gradient Animated">
+                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="4"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="gradientAnimatedButtonDidTap:" destination="-1" eventType="touchUpInside" id="EFi-w0-bz7"/>
                             </connections>
                         </button>
                     </subviews>

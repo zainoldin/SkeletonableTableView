@@ -13,4 +13,5 @@ public enum SkeletonType {
     case solid
     case solidAnimated(animation: SkeletonLayerAnimation?)
     case gradient(secondaryColor: UIColor?)
+    case grarientAnimated(secondaryColor: UIColor?, direction: GradientDirection, duration: Double)
 }

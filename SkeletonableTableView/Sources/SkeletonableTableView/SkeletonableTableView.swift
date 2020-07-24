@@ -42,7 +42,7 @@ public final class SkeletonableTableView: UITableView {
         setup()
     }
     
-    /// Shows the solid animated skeleton with skeletonTintColor on the SkeletonableTableView.
+    /// Shows the animated solid skeleton with skeletonTintColor on the SkeletonableTableView.
     ///
     /// if animation is nil, pulse animation will be used.
     ///
@@ -68,6 +68,18 @@ public final class SkeletonableTableView: UITableView {
     ///   - transition: The style of the transition when the skeleton appears. Defaults to `.none`.
     public func showGradientedSkeleton(secondaryColor: UIColor? = nil, transition: SkeletonTransitionStyle = .none) {
         showSkeleton(with: .gradient(secondaryColor: secondaryColor), transition: transition)
+    }
+    
+    /// Shows the animated gradient skeleton on the SkeletonableTableView.
+    ///
+    /// - Parameters:
+    ///   - secondaryColor: The secondary color of gradient, base color is set by skeletonTintColor. Defaults to `.nil`.
+    ///   - transition: The style of the transition when the skeleton appears. Defaults to `.none`.
+    func showGradientedSkeletonAnimating(secondaryColor: UIColor? = nil,
+                                         gradientDirection: GradientDirection = .leftRight,
+                                         duration: Double = 1.5,
+                                         transition: SkeletonTransitionStyle = .none) {
+        showSkeleton(with: .grarientAnimated(secondaryColor: secondaryColor, direction: gradientDirection, duration: duration), transition: transition)
     }
     
     /// Hides the  skeleton on the SkeletonableTableView.
@@ -102,6 +114,10 @@ public final class SkeletonableTableView: UITableView {
                 case let .gradient(secondaryColor):
                     let gradient = SkeletonGradient(baseColor: skeletonTintColor, secondaryColor: secondaryColor)
                     cell.showGradientSkeleton(usingGradient: gradient, transition: transition)
+                case let .grarientAnimated(secondaryColor, direction, duration):
+                    let gradient = SkeletonGradient(baseColor: skeletonTintColor, secondaryColor: secondaryColor)
+                    let animation = SkeletonAnimationBuilder().makeSlidingAnimation(withDirection: direction, duration: duration)
+                    cell.showAnimatedGradientSkeleton(usingGradient: gradient, animation: animation, transition: transition)
                 }
                 continue
             }
@@ -113,6 +129,9 @@ public final class SkeletonableTableView: UITableView {
             case let .gradient(secondaryColor):
                 let gradient = SkeletonGradient(baseColor: skeletonTintColor, secondaryColor: secondaryColor)
                 skeletonableCell.showGradientedSkeleton(gradient: gradient, transition: transition)
+            case let .grarientAnimated(secondaryColor, direction, duration):
+                let gradient = SkeletonGradient(baseColor: skeletonTintColor, secondaryColor: secondaryColor)
+                skeletonableCell.showGradientedSkeletonAnimating(gradient: gradient, gradientDirection: direction, duration: duration, transition: transition)
             }
         }
     }
@@ -141,6 +160,10 @@ public final class SkeletonableTableView: UITableView {
                 case let .gradient(secondaryColor):
                     let gradient = SkeletonGradient(baseColor: skeletonTintColor, secondaryColor: secondaryColor)
                     headerFooterView.showGradientSkeleton(usingGradient: gradient, transition: transition)
+                case let .grarientAnimated(secondaryColor, direction, duration):
+                    let gradient = SkeletonGradient(baseColor: skeletonTintColor, secondaryColor: secondaryColor)
+                    let animation = SkeletonAnimationBuilder().makeSlidingAnimation(withDirection: direction, duration: duration)
+                    headerFooterView.showAnimatedGradientSkeleton(usingGradient: gradient, animation: animation, transition: transition)
                 }
                 continue
             }
@@ -152,6 +175,9 @@ public final class SkeletonableTableView: UITableView {
             case let .gradient(secondaryColor):
                 let gradient = SkeletonGradient(baseColor: skeletonTintColor, secondaryColor: secondaryColor)
                 skeletonableHeaderFooterView.showGradientedSkeleton(gradient: gradient, transition: transition)
+            case let .grarientAnimated(secondaryColor, direction, duration):
+                let gradient = SkeletonGradient(baseColor: skeletonTintColor, secondaryColor: secondaryColor)
+                skeletonableHeaderFooterView.showGradientedSkeletonAnimating(gradient: gradient, gradientDirection: direction, duration: duration, transition: transition)
             }
         }
     }
