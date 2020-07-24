@@ -19,6 +19,7 @@ final class RegularHeaderView: SkeletonableHeaderFooterView {
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
         setupUI()
+        // if custom headerFooterView is realized programatically, call this method in init functions
         setupSkeletonableViews()
     }
     

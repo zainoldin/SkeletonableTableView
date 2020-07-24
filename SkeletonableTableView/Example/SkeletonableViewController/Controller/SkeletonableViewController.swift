@@ -82,7 +82,8 @@ final class SkeletonableViewController: UIViewController {
         case .solidAnimated:
             tableView.showSolidSkeletonAnimating()
         case .gradient:
-            tableView.showGradientedSkeleton()
+            tableView.skeletonTintColor = .lightGray
+            tableView.showGradientedSkeleton(secondaryColor: UIColor.lightGray.withAlphaComponent(0.8))
         case .gradientAnimated:
             tableView.skeletonTintColor = .lightGray
             tableView.showGradientedSkeletonAnimating(secondaryColor: UIColor.lightGray.withAlphaComponent(0.5))

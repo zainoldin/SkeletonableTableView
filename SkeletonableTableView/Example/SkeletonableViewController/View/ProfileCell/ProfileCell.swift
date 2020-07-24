@@ -14,7 +14,7 @@ final class ProfileCell: SkeletonableTableViewCell {
         super.awakeFromNib()
     }
     
-    // SkeletonableTableView uses `SkeletonAppearance.default.tintColor` to show skeleton on all cels, but you can override this method and set the color you want to specific cell
+    // I override this function to make different skeleton appearance configuration for this cell
     override func showSolidSkeletonAnimating(color: UIColor = SkeletonAppearance.default.tintColor,
                                              animation: SkeletonLayerAnimation? = nil,
                                              transition: SkeletonTransitionStyle = .none) {
@@ -24,5 +24,26 @@ final class ProfileCell: SkeletonableTableViewCell {
     override func showSolidSkeleton(color: UIColor = SkeletonAppearance.default.tintColor,
                                     transition: SkeletonTransitionStyle = .none) {
         super.showSkeleton(usingColor: .bgPrimaryLighten, transition: transition)
+    }
+    
+    override func showGradientedSkeleton(baseColor: UIColor = SkeletonAppearance.default.tintColor,
+                                         secondaryColor: UIColor? = nil,
+                                         transition: SkeletonTransitionStyle = .none) {
+        super.showGradientedSkeleton(baseColor: .bgPrimaryLighten,
+                                     secondaryColor: UIColor.bgPrimaryLighten.withAlphaComponent(0.7),
+                                     transition: transition)
+    }
+    
+    override func showGradientedSkeletonAnimating(baseColor: UIColor = SkeletonAppearance.default.tintColor,
+                                                  secondaryColor: UIColor? = nil,
+                                                  gradientDirection: GradientDirection = .leftRight,
+                                                  duration: Double = 1.5,
+                                                  transition: SkeletonTransitionStyle = .none) {
+        super.showGradientedSkeletonAnimating(baseColor: .bgPrimaryLighten,
+                                              secondaryColor: UIColor.bgPrimaryLighten.withAlphaComponent(0.7),
+                                              gradientDirection: .rightLeft,
+                                              duration: duration,
+                                              transition: transition)
+        
     }
 }
