@@ -10,7 +10,7 @@ import SkeletonView
 import UIKit
 
 // Important: add all UIViews to contentView, not to root view. Otherwise, only rootView will be skeletoned and wouldn't work as expected.
-// I suggest to realize your custom UITableViewHeaderFooterView programatically as I couldn't find way to add UIViews to contentView by Interface Builder
+// I suggest to implement your custom UITableViewHeaderFooterView programatically as I couldn't find way to add UIViews to contentView by Interface Builder
 open class SkeletonableHeaderFooterView: UITableViewHeaderFooterView {
             
     open override func prepareForReuse() {
@@ -20,8 +20,8 @@ open class SkeletonableHeaderFooterView: UITableViewHeaderFooterView {
     
     /// Shows the solid animated  skeleton on the SkeletonableHeaderFooterView.
     ///
-    /// If animation is nil, pulse animation will be used.
-    /// There is possibility to override function and change skeleton appearance configuration of  current view
+    /// If animation is `nil`, pulse animation will be used.
+    /// You can override function and change skeleton appearance configuration of current view
     ///
     /// - Parameters:
     ///   - color: The color of skeleton. Defaults to `SkeletonAppearance.default.tintColor`.
@@ -35,8 +35,8 @@ open class SkeletonableHeaderFooterView: UITableViewHeaderFooterView {
     
     /// Shows the solid animated  skeleton on the SkeletonableHeaderFooterView.
     ///
-    /// If animation is nil, pulse animation will be used.
-    /// There is possibility to override function and change skeleton appearance configuration of  current view
+    /// If animation is `nil`, pulse animation will be used.
+    /// You can override function and change skeleton appearance configuration of  current view
     ///
     /// - Parameters:
     ///   - color: The color of skeleton. Defaults to `SkeletonAppearance.default.tintColor`.
@@ -48,7 +48,7 @@ open class SkeletonableHeaderFooterView: UITableViewHeaderFooterView {
     
     /// Shows the gradient skeleton without animation on the SkeletonableHeaderFooterView.
     ///
-    /// There is possibility to override function and change skeleton appearance configuration of  current view
+    /// You can override function and change skeleton appearance configuration of current view
     ///
     /// - Parameters:
     ///   - baseColor: The base color of gradient. Defaults to `SkeletonAppearance.default.tintColor`.
@@ -63,7 +63,7 @@ open class SkeletonableHeaderFooterView: UITableViewHeaderFooterView {
     
     /// Shows the gradient animated skeleton on the SkeletonableHeaderFooterView.
     ///
-    /// There is possibility to override function and change skeleton appearance configuration of  current view
+    /// You can override function and change skeleton appearance configuration of current view
     ///
     /// - Parameters:
     ///   - baseColor: The base color of gradient. Defaults to `SkeletonAppearance.default.tintColor`.
@@ -91,9 +91,10 @@ open class SkeletonableHeaderFooterView: UITableViewHeaderFooterView {
     
     /// Setup initial skeleton appearance configurations of cell
     ///
-    /// If your child class is relized programatically you should call this method in init functions (child class) to make all needed subviews skeletonable. Otherwise do nothing
+    /// If your child class is implemented programmatically you should call this method in initializer methods of derived class to mark all necessary subviews as skeletonable.
     ///
-    /// This method makes skeletonable only subviews of contentView as default, but there is possibility to override function and change skeleton appearance configuration of specific views
+    /// This method by default marks only subviews of contentView as skeletonable.
+    /// You can override it and tweak the marking behavior if you need
     open func setupSkeletonableViews() {
         var views = contentView.subviews
         views.append(self)

@@ -21,7 +21,6 @@
 		C4A5400F24BF6B9E005A8FD1 /* SkeletonableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A5400E24BF6B9E005A8FD1 /* SkeletonableTableViewCell.swift */; };
 		C4DEED0324B22B2B0098F9CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DEED0224B22B2B0098F9CB /* AppDelegate.swift */; };
 		C4DEED0524B22B2B0098F9CB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DEED0424B22B2B0098F9CB /* SceneDelegate.swift */; };
-		C4DEED0724B22B2B0098F9CB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DEED0624B22B2B0098F9CB /* ViewController.swift */; };
 		C4DEED0C24B22B2E0098F9CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4DEED0B24B22B2E0098F9CB /* Assets.xcassets */; };
 		C4DEED1C24B22DEF0098F9CB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4DEED1A24B22DEF0098F9CB /* LaunchScreen.storyboard */; };
 		C4DEED2024B231630098F9CB /* UITableView+Dequeue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DEED1F24B231630098F9CB /* UITableView+Dequeue.swift */; };
@@ -57,7 +56,6 @@
 		C4DEECFF24B22B2B0098F9CB /* SkeletonableTableView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SkeletonableTableView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4DEED0224B22B2B0098F9CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C4DEED0424B22B2B0098F9CB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C4DEED0624B22B2B0098F9CB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C4DEED0B24B22B2E0098F9CB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C4DEED1024B22B2E0098F9CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C4DEED1B24B22DEF0098F9CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -205,7 +203,6 @@
 		C4DEED0124B22B2B0098F9CB /* SkeletonableTableView */ = {
 			isa = PBXGroup;
 			children = (
-				C4DEED0624B22B2B0098F9CB /* ViewController.swift */,
 				C4DEED1724B22C990098F9CB /* Core */,
 				C4DEED1924B22CE30098F9CB /* Example */,
 				C4DEED1824B22CD90098F9CB /* Sources */,
@@ -484,7 +481,6 @@
 			files = (
 				C4F63C3824C0BBB60002BAC8 /* SkeletonableViewController.swift in Sources */,
 				C4DEED2224B231DE0098F9CB /* UICollectionView+Dequeue.swift in Sources */,
-				C4DEED0724B22B2B0098F9CB /* ViewController.swift in Sources */,
 				C4DEED2824B232BD0098F9CB /* UITableView+Register.swift in Sources */,
 				C4F63C4024C0C0050002BAC8 /* RowType.swift in Sources */,
 				C40A8C5C24C4AC9E00763A75 /* CircledView.swift in Sources */,

@@ -22,8 +22,8 @@ open class SkeletonableTableViewCell: UITableViewCell {
     
     /// Shows the solid animated skeleton on the SkeletonableTableViewCell.
     ///
-    /// If animation is nil, `pulse` animation will be used.
-    /// There is possibility to override function and change skeleton appearance configuration of  current cell
+    /// If animation is `nil`, `pulse` animation will be used.
+    /// You can override function and change skeleton appearance configuration of current cell
     ///
     /// - Parameters:
     ///   - color: The color of skeleton. Defaults to `SkeletonAppearance.default.tintColor`.
@@ -37,8 +37,8 @@ open class SkeletonableTableViewCell: UITableViewCell {
     
     /// Shows the solid animated skeleton on the SkeletonableTableViewCell.
     ///
-    /// If animation is nil, pulse animation will be used.
-    /// There is possibility to override function and change skeleton appearance configuration of  current cell
+    /// If animation is `nil`, pulse animation will be used.
+    /// You can override function and change skeleton appearance configuration of current cell
     ///
     /// - Parameters:
     ///   - color: The color of skeleton. Defaults to `SkeletonAppearance.default.tintColor`.
@@ -50,7 +50,7 @@ open class SkeletonableTableViewCell: UITableViewCell {
     
     /// Shows the gradient skeleton without animation on the SkeletonableTableViewCell.
     ///
-    /// There is possibility to override function and change skeleton appearance configuration of  current cell
+    /// You can to override function and change skeleton appearance configuration of current cell
     ///
     /// - Parameters:
     ///   - baseColor: The base color of gradient. Defaults to `SkeletonAppearance.default.tintColor`.
@@ -65,7 +65,7 @@ open class SkeletonableTableViewCell: UITableViewCell {
     
     /// Shows the gradient animated skeleton on the SkeletonableTableViewCell.
     ///
-    /// There is possibility to override function and change skeleton appearance configuration of  current cell
+    /// You can override function and change skeleton appearance configuration of current cell
     ///
     /// - Parameters:
     ///   - baseColor: The base color of gradient. Defaults to `SkeletonAppearance.default.tintColor`.
@@ -93,9 +93,10 @@ open class SkeletonableTableViewCell: UITableViewCell {
 
     /// Setup initial skeleton appearance configurations of cell
     ///
-    /// If your child class is relized programatically you should call this method in init functions (child class) to make all needed subviews skeletonable. Otherwise do nothing
+    /// If your child class is implemented programmatically you should call this method in initializer methods of derived class to mark all necessary subviews as skeletonable.
     ///
-    /// This method makes skeletonable only subviews of contentView as default, but there is possibility to override function and change skeleton appearance configuration of specific views
+    /// This method by default marks only subviews of contentView as skeletonable.
+    /// You can override it and tweak the marking behavior if you need
     open func setupSkeletonableViews() {
         var views = contentView.subviews
         views.append(self)

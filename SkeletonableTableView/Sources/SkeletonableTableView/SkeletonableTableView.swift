@@ -13,7 +13,7 @@ private enum Constants {
     static let cornerRadius = 4
 }
 
-public final class SkeletonableTableView: UITableView {
+public class SkeletonableTableView: UITableView {
     
     /// The color of skeleton (used as base color in gradient)
     @IBInspectable public var skeletonTintColor: UIColor = .skeletonDefault {
@@ -44,7 +44,7 @@ public final class SkeletonableTableView: UITableView {
     
     /// Shows the animated solid skeleton on the SkeletonableTableView.
     ///
-    /// if animation is nil, pulse animation will be used.
+    /// if animation is `nil`, `pulse` animation will be used.
     ///
     /// - Parameters:
     ///   - animation: The animation of the skeleton. Defaults to `nil`.
