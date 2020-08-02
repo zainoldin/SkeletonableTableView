@@ -34,6 +34,8 @@ final class SkeletonableViewController: UIViewController {
     
     @IBOutlet weak var tableView: SkeletonableTableView!
     
+    lazy var stableView = SkeletonableTableView()
+    
     init(type: SelectionSkeletonType) {
         self.type = type
         super.init(nibName: String(describing: Self.self), bundle: nil)
@@ -64,6 +66,7 @@ final class SkeletonableViewController: UIViewController {
     private func setupUI() {
         title = type.rawValue
         tableView.backgroundView = tableBackgroundView
+        tableView.skeletonTintColor = .gray
         tableView.delegate = self
         tableView.dataSource = self
         [
